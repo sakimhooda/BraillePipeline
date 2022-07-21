@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+ <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+     <id>CB.VcPkg.SuiteSparse</id>
+     <version>1.0.0</version>
+     <title>CB.VcPkg.SuiteSparse</title>
+     <authors>CoreBuild Team</authors>
+     <owners>CoreBuild Team</owners>
+     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+     <description>SuiteSparse VcPkg binaries</description>
+     <releaseNotes>
+       1. See //VcPkg.IO for VcPkg information
+       2. Carries SuiteSparse VcPkg generated files
+     </releaseNotes>
+     <copyright>Copyright (c) Microsoft Corporation</copyright>
+     <tags>native</tags>
+  </metadata>
+  <files>
+    <file src="artifacts\x86-windows\lib\libcxsparse.lib" target="lib\x86-windows" />
+    <file src="artifacts\x86-windows\bin\libcxsparse.dll" target="bin\x86-windows"/>
+    <file src="artifacts\x86-windows\include\suitesparse\*.h" target="include\x86-windows"/>
+    <file src="artifacts\x86-windows\msbuild\*.*" target="msbuild"/>
+    <file src="artifacts\x64-windows\lib\libcxsparse.lib" target="lib\x64-windows" />
+    <file src="artifacts\x64-windows\bin\libcxsparse.dll" target="bin\x64-windows"/>
+    <file src="artifacts\x64-windows\include\suitesparse\*.h" target="include\x64-windows"/>
+  </files>
+ </package>
