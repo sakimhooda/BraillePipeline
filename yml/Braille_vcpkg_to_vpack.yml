@@ -20,7 +20,7 @@ resources:
   repositories:
     - repository: Templates
       type: git
-      name: CB.Pipelines
+      name: braille.CB.Pipelines
 
   
 variables:
