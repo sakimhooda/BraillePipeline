@@ -19,8 +19,8 @@ trigger:
 resources:
   repositories:
     - repository: Templates
-      type: git
-      name: braille.CB.Pipelines
+      type: github
+      name: sakimhooda/braille.CB.Pipelines
 
   
 variables:
