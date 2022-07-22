@@ -1,0 +1,59 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+pool:
+  name: CoreBuild-Pool
+
+trigger:
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - src/Braille
+
+
+# Access yaml templates from Shared repo
+resources:
+  repositories:
+    - repository: Templates
+      type: git
+      name: CB.Pipelines
+
+  
+variables:
+  projectSourcePath: 'src/Braille'
+  
+name: $(BuildDefinitionName)_$(Date:yyyy).$(Date:MM).$(Date:dd).$(Rev:.rrr)
+
+stages:
+- stage: ProduceNuget
+  jobs:
+  - job: SuiteSparse_Vcpkg_to_nuGet
+    displayName: SuiteSparse Vcpkg to nuGet
+    pool: CoreBuild-Pool-Lite
+    steps:
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        source: 'current'
+        path: $(projectSourcePath)\artifacts
+        artifact: SuiteSparse_x86_release
+        
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        source: 'current'
+        path: $(projectSourcePath)\artifacts
+        artifact: SuiteSparse_x64_release
+
+    - task: NuGetCommand@2
+      displayName: NuGet pack
+      inputs:
+        command: pack
+        searchPatternPack: '$(projectSourcePath)/**/*.nuspec'
+        configurationToPack: ''
+        outputDir: $(Build.BinariesDirectory)
+        versioningScheme: byBuildNumber
+        basePath: $(projectSourcePath)
+

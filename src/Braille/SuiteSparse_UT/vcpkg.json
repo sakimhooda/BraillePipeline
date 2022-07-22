@@ -2,6 +2,7 @@
     "name": "corebuild-project",
     "version-string": "1",
     "dependencies": [
-        "suitesparse"
+        "libusb"
     ]
+    
 }

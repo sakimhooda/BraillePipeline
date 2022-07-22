@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Project>
+  <PropertyGroup>
+    <!-- Tell vcpkg where to find itself -->
+    <VcpkgRoot>$(ROOT)\vcpkg</VcpkgRoot>
+    <!-- Configure "install" integration of vcpkg -->
+    <!-- <VCPkgLocalAppDataDisabled>false</VCPkgLocalAppDataDisabled> -->
+    <!-- Enable vcpkg manifests -->
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+    <!-- Enable/Disable automatic bootstrap and install. -->
+    <!-- <VcpkgManifestInstall>true</VcpkgManifestInstall> -->
+  </PropertyGroup>
+  <Import Project="$(VcpkgRoot)\scripts\buildsystems\msbuild\vcpkg.props" />
+</Project>
