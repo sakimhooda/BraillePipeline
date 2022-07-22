@@ -21,6 +21,7 @@ resources:
     - repository: Templates
       type: github
       name: sakimhooda/braille.CB.Pipelines
+      endpoint: "https://github.com/sakimhooda/braille.CB.Pipelines.git"
 
   
 variables:
