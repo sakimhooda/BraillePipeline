@@ -21,6 +21,7 @@ resources:
     - repository: Templates
       type: github
       name: CB.Pipelines
+      endpoint: PkgesCNSSecret
 
   
 variables:
